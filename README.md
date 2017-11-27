@@ -2,7 +2,7 @@
 
 
 Download Private Key Contained in Submission
-`ssh grader@52.14.163.100`
+`ssh grader@52.14.163.100 -p 2200`
 
 
 
