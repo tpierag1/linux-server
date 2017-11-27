@@ -1,10 +1,15 @@
 # Deploy to Amazon Lightsail
 
-Download private key contained in repository and ssh into server
+
+Download Private Key Contained in Submission
 `ssh grader@52.14.163.100`
+
+
 
 ## Configuration Steps
 The following steps were taken to configure and secure the server
+
+
 
 #### Set Up Non-Root User
 Create User grader
@@ -55,6 +60,8 @@ Change the Following:
 
 `PermitRootLogin no`
 
+
+
 #### Configure UFW and Amazon Lightsail Firewalls
 
 Open Port 2200 in Firewall Configuration on Amazon Lightsail Control Panel, Under Networking
@@ -95,6 +102,7 @@ To                         Action      From
 123 (v6)                   ALLOW       Anywhere (v6)  
 ```
 
+
 #### Install Software
 
 `sudo apt-get -qqy install make zip unzip postgresql git apache2 libapache2-mod-wsgi python3 python3-pip python python-pip`
@@ -104,6 +112,8 @@ To                         Action      From
 `sudo pip2 install flask packaging oauth2client redis passlib flask-httpauth`
 
 `sudo pip2 install sqlalchemy flask-sqlalchemy psycopg2 requests`
+
+
 
 #### Configure Postgresql
 
@@ -129,6 +139,8 @@ Configure Database
 
 `exit`
 
+
+
 #### Set Up Application
 
 `cd /var/www`
@@ -142,6 +154,7 @@ Configure Database
 `cd FlaskApp`
 
 `git clone https://github.com/tpierag1/item-catalog.git FlaskApp`
+
 
 
 #### Modify Files
@@ -179,6 +192,7 @@ Change the Following:
 to
 
 `CLIENT_ID = json.loads('/var/www/FlaskApp/FlaskApp/client_secrets.json', 'r')`
+
 
 
 #### Write WSGI file and Configure apache2
@@ -229,6 +243,7 @@ Add the following:
 
 ```
 Enable Site
+
 `sudo a2ensite FlaskApp`
 
 Create flaskapp.wsgi
@@ -254,13 +269,17 @@ Go to Google Dashboard console.developers.google.com
 Download client-secrets.json and Tranfer to Server, Into /var/www/FlaskApp/FlaskApp
 
 Restart Apache
+
 `sudo service apache2 restart`
+
+
 
 ### Configuration Details
 
 User
 
 `username: grader`
+
 `password: grader`
 
 Database
@@ -270,4 +289,5 @@ Database
 `password: grader`
 
 URL
+
 `http://52.14.163.100`
