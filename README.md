@@ -162,6 +162,7 @@ Edit db_constructor.py, models.py and __init__.py:
 ```
     replace engine = create_engine('sqlite:///catalog.db')
     with engine= create_engine('postgresql://grader:grader@localhost/catalog')
+    
     ```
 Build Databases
 
