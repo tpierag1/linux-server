@@ -11,7 +11,8 @@ The following steps were taken to configure and secure the server
 
 
 
-#### Set Up Non-Root User
+
+#### *Set Up Non-Root User*
 Create User grader
 
 `sudo adduser grader`
@@ -62,7 +63,8 @@ Change the Following:
 
 
 
-#### Configure UFW and Amazon Lightsail Firewalls
+
+#### *Configure UFW and Amazon Lightsail Firewalls*
 
 Open Port 2200 in Firewall Configuration on Amazon Lightsail Control Panel, Under Networking
 
@@ -103,7 +105,8 @@ To                         Action      From
 ```
 
 
-#### Install Software
+
+#### *Install Software*
 
 `sudo apt-get -qqy install make zip unzip postgresql git apache2 libapache2-mod-wsgi python3 python3-pip python python-pip`
 
@@ -115,7 +118,8 @@ To                         Action      From
 
 
 
-#### Configure Postgresql
+
+#### *Configure Postgresql*
 
 `sudo nano /etc/postgresql/9.5/main/pg_hba.Configure`
 
@@ -141,7 +145,8 @@ Configure Database
 
 
 
-#### Set Up Application
+
+#### *Set Up Application*
 
 `cd /var/www`
 
@@ -157,7 +162,8 @@ Configure Database
 
 
 
-#### Modify Files
+
+#### *Modify Files*
 
 `cd FlaskApp`
 
@@ -195,7 +201,8 @@ to
 
 
 
-#### Write WSGI file and Configure apache2
+
+#### *Write WSGI file and Configure apache2*
 
 Create WSGI file
 
@@ -274,7 +281,8 @@ Restart Apache
 
 
 
-### Configuration Details
+
+### *Configuration Details*
 
 User
 
